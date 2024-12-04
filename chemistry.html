@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linus Pauling/chemistry</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Lora', serif;
+        }
+    
+        header {
+            background-color: #f9f9f9;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 0;
+            border-bottom: 2px solid #eaeaea;
+            position: fixed;
+            z-index: 1000;
+        }
+
+        body {
+            padding-top: 80px;
+        }
+    
+        .header-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+    
+        .header-logo h1 {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #a37f40; 
+            line-height: 1.2;
+        }
+
+        .header-logo a {
+            text-decoration: none;
+            color: #a37f40;
+            font-size: 1em;
+            
+            transition: color 0.3s;
+        }
+
+        .header-logo a:hover {
+            color: #c79c52;
+        }
+
+    
+        .header-nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+    
+        .header-nav li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 1em;
+            transition: color 0.3s;
+        }
+    
+        .header-nav li a:hover {
+            color: #a37f40;
+        }
+
+        .full-screen-section {
+            width: 100%;
+            height: auto;
+            background-image: url('CartoonPauling.jpg'); 
+            background-size: cover;
+            background-position: center;
+            color: #fff; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center; 
+            align-items: center;
+            position: relative;
+            margin-top: -10px;
+        }
+
+        .linus-pauling {
+            padding: 40px 20px;
+            margin-bottom: 40px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .container h1 {
+            font-size: 3em;
+            text-align: center;
+            margin-bottom: 40px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .content {
+            display: flex;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .left-column {
+            width: 70%;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+        }
+
+        .left-column h2 {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #a37f40;
+        }
+
+        .left-column p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .right-column {
+            width: 30%;
+            border-top: 1px solid #ddd;
+            padding-top: 20px;
+        }
+
+        .right-column h2 {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #a37f40;
+        }
+
+
+        .right-column ul {
+            list-style-type: none;
+        }
+
+        .right-column li {
+            font-size: 1.2em;
+            line-height: 1.6;
+            color: #333;
+        }
+
+
+        .right-column li::before {
+            content: "•";
+            color: #d7ad63; 
+            font-size: 1.2em; 
+            margin-right: 10px;
+            position: relative;
+            top: 2px;
+        }
+
+
+        @media screen and (max-width: 768px) {
+            .content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .left-column, .right-column {
+                width: 100%;
+                text-align: center;
+            }
+        }
+        
+        .Finding-section {
+            width: 90%;
+            max-width: 1200px;
+            margin: 40px auto;
+            text-align: center;
+            position: relative;
+            margin-top: 70px;
+        }
+
+        .Finding-section h2 {
+            color: #a37f40;
+            font-weight: bold;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            font-size: 1.5em;
+            letter-spacing: 1px;
+            text-align: left;
+            position: relative;
+            padding-top: 30px; 
+
+        }
+
+        .Finding-section h2::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: #ddd; 
+        }
+
+        .Finding-section img {
+            width: 90%;
+            height: auto; 
+            border-radius: 10px;
+            margin-bottom: 5%;
+        }
+
+        .Finding-section p {
+            font-size: 1.2em;
+            text-align: left;
+            color: #333;
+            margin-bottom: 15px;
+            text-indent: 2em;
+        }
+
+        .timeline-section {
+            padding: 60px 20px;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin-top: 120px;
+        }
+
+        .timeline-section h2{
+            font-size: 1.5em;
+            padding-bottom: 25px;
+        }
+
+        .timeline-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .timeline {
+            display: flex;
+            gap: 30px;
+            transition: transform 0.5s ease;
+        }
+
+        .timeline-item {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 250px;
+            min-width: 250px;
+            text-align: left;
+            flex-shrink: 0;
+        }
+
+        .timeline-year {
+            font-size: 2em;
+            font-weight: bold;
+            color: #a37f40;
+            margin-bottom: 10px;
+        }
+
+        .timeline-content p {
+            font-size: 1.0em;
+            color: #333;
+        }
+
+        .timeline-btn {
+            background-color: #a37f40;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            z-index: 1;
+            font-size: 1.5em;
+            border-radius: 5px;
+        }
+
+        .prev {
+            left: 0;
+        }
+
+        .next {
+            right: 0;
+        }
+
+        .timeline-btn:hover {
+            background-color: #805f30;
+        }
+
+
+        .timeline-item:last-child {
+            margin-right: 20px;
+        }
+
+
+        @media screen and (max-width: 768px) {
+            .timeline {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .timeline-btn {
+                display: none; 
+            }
+
+            .timeline-item {
+                width: 100%;
+            }
+        }
+
+        .button-container {
+            margin-top: 15px;
+        }
+
+        .button-container a {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1em;
+            color: #fff;
+            background-color: #a37f40;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .button-container a:hover {
+            background-color: #805f30;
+        }
+
+        .Chemistry-section {
+            width: 90%;
+            max-width: 1200px;
+            margin: 40px auto;
+            text-align: center;
+            position: relative;
+            margin-top: 150px;
+        }
+
+        .Chemistry-section h2 {
+            color: #a37f40;
+            font-weight: bold;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            font-size: 1.5em;
+            letter-spacing: 1px;
+            position: relative;
+            padding-top: 30px;
+        }
+
+        .Chemistry-section h2::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: #ddd;
+        }
+
+        .work-cards {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .work-card {
+            width: calc(33.33% - 20px);
+            padding: 20px;
+            background-color: transparent;
+            text-align: left;
+            box-sizing: border-box;
+            border-top: 1px solid #ddd; 
+        }
+
+        .work-card h3 {
+            color: #333;
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .work-card p {
+            font-size: 1em;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .work-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .work-card figcaption {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: -20px;
+        }
+
+
+        @media screen and (max-width: 768px) {
+            .work-card {
+                width: 100%;
+            }
+        }
+
+        footer{
+            background-color: rgb(243, 239, 232);
+            margin-top: 80px;
+            padding: 40px;
+            padding-top: 50px;
+            padding-bottom: 70px;
+        }
+
+        .cta-content h2{
+            font-size: 2em;
+            padding-left: 20px;
+        }
+
+        b{
+            color: #5740a3;
+        }
+
+    </style>
+</head>
+<body>
+    <section class="full-screen-section"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></section>
+
+
+    <header>
+        <div class="header-container">
+            <div class="header-logo">
+                <h1><a href="index.html">Linus Pauling</a></h1>
+            </div>
+            <nav class="header-nav">
+                <ul>
+                    <li><a href="biography.html">Biography</a></li>
+                    <li><a href="chemistry.html">Chemistry</a></li>
+                    <li><a href="heathcare.html">Healthcare</a></li>
+                    <li><a href="peace.html">Peace Activism</a></li>
+                    <li><a href="experiment.html">Events & Experiment</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section class="linus-pauling">
+        <div class="container">
+            <h1>The Master of Chemical Bonds: Linus Pauling’s Groundbreaking Contributions</h1>
+    
+            <div class="content">
+                <div class="left-column">
+                    <h2>A Pioneer in the World of Chemistry</h2>
+                    <p>Linus Pauling was a brilliant chemist whose research reshaped our understanding of molecular structure and chemical bonding. His groundbreaking discoveries not only transformed chemistry but also paved the way for advances in biology and medicine. Pauling's innovative work led him to win two Nobel Prizes, one in Chemistry for his research on the nature of the chemical bond, and another in Peace for his efforts to promote nuclear disarmament. His scientific contributions continue to influence the world today, making him one of the most impactful scientists in history.</p>
+                </div>
+    
+                <div class="right-column">
+                    <h2>Main Achievements</h2>
+                    <ul>
+                        <li>Bonding Theory Revolution</li>
+                        <li>Molecular Structure Insights</li>
+                        <li>Discovery of alpha-helix and beta-sheet structures</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>    
+    
+    
+
+
+    <section class="timeline-section">
+        <h2>Key Events of Pauling's Chemical Contributions</h2>
+        <div class="timeline-container">
+            <button class="timeline-btn prev" onclick="moveTimeline(-1)">&#10094;</button>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">1928</div>
+                    <div class="timeline-content">
+                        <p>Pauling develops his valence bond theory, which transforms the understanding of chemical bonding by explaining how atoms form stable molecules.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">1931</div>
+                    <div class="timeline-content">
+                        <p>Publishes his first paper on the concept of electronegativity, explaining how atoms attract electrons in a molecule—a critical idea in chemical reactions and molecular behavior.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">1939</div>
+                    <div class="timeline-content">
+                        <p>Discovers the alpha-helix structure in proteins, a key finding in molecular biology, explaining how protein chains fold into specific shapes.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">1940s</div>
+                    <div class="timeline-content">
+                        <p>Works on the structure of vitamins, showing how their molecular makeup affects biological function.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">1951</div>
+                    <div class="timeline-content">
+                        <p>Proposes the structure of hemoglobin, the molecule responsible for oxygen transport in the blood, using his knowledge of chemical bonding and molecular structure.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">1954</div>
+                    <div class="timeline-content">
+                        <p>Wins the Nobel Prize in Chemistry for his research on the nature of the chemical bond, which revolutionized the field of molecular chemistry.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">1960s</div>
+                    <div class="timeline-content">
+                        <p>Expands on his research in protein structure, particularly his discovery of the beta-sheet structure, crucial for understanding how proteins function.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">1970s</div>
+                    <div class="timeline-content">
+                        <p>Pauling explores the health benefits of Vitamin C, publishing books and articles that spark significant debate about its potential to prevent common colds and improve heart health.</p>
+                    </div>
+                </div>
+            </div>
+            <button class="timeline-btn next" onclick="moveTimeline(1)">&#10095;</button>
+        </div>
+    </section>
+
+    <script>
+        let timelineIndex = 0;
+        const timeline = document.querySelector('.timeline');
+        const items = document.querySelectorAll('.timeline-item');
+        const totalItems = items.length;
+        const timelineContainer = document.querySelector('.timeline-container');
+
+        function moveTimeline(direction) {
+            const containerWidth = timelineContainer.offsetWidth;
+            const itemsWidth = items[0].offsetWidth + 30; 
+            
+            timelineIndex += direction;
+
+
+            if (timelineIndex < -2) {
+                timelineIndex = -2; 
+            }
+
+
+            const maxIndex = totalItems - 3;
+            const maxOffset = (maxIndex * itemsWidth); 
+            if (timelineIndex > maxIndex) {
+                timelineIndex = maxIndex;
+            }
+
+            const offset = -(timelineIndex * itemsWidth); 
+
+            const visibleWidth = containerWidth;
+            const timelineWidth = timeline.offsetWidth; 
+            if (timelineWidth + offset <= visibleWidth) {
+                timelineIndex = maxIndex;
+            }
+
+            timeline.style.transform = `translateX(${offset}px)`;
+        }
+
+
+    </script>
+
+    <section class="Finding-section">
+        <h2>Bonding Theory Revolution (Valence Bond Theory and Resonance)</h2>
+        <p>In the early 20th century, scientists had a basic understanding of how atoms bond together to form molecules, but they didn’t fully understand how electrons were arranged within these bonds. <b>Linus Pauling’s work on bonding theory</b> changed everything. He proposed that <b>chemical bonds</b> aren’t always as simple as electrons being shared between two atoms in fixed positions. Instead, electrons in a molecule can <b>spread out over multiple atoms</b>—this idea is known as <b>resonance</b>.</p>
+        <img src="resonance theory.jpg" alt="Resonance theory">
+        <p>A classic example of resonance is the molecule <b>benzene</b>, a simple compound made up of six carbon atoms and six hydrogen atoms. In earlier models, scientists thought that benzene had alternating single and double bonds between carbon atoms, but Pauling’s theory showed that the electrons are actually shared equally across all six carbon atoms. This helps explain why <b>benzene is unusually stable</b> and why it reacts with other chemicals in a specific way. Pauling’s theory helped chemists understand how molecules behave more accurately and opened the door for the design of new chemicals, including life-saving drugs.</p>
+    </section>
+
+    <section class="Finding-section">
+        <h2>Molecular Structure Insights (X-ray Crystallography and Proteins)</h2>
+        <p>In addition to his work on chemical bonds, Pauling was instrumental in understanding the <b>three-dimensional structure of molecules</b>, particularly proteins. Before Pauling’s discoveries, scientists had a hard time figuring out how large, complex molecules like proteins were shaped because they couldn't be seen with the naked eye. To solve this problem, Pauling used a powerful technique called <b>X-ray crystallography</b>.</p>
+        <img src="protein structure.png" alt="Protein structure">
+        <p>This method involves shining X-rays through a crystal of the molecule, which scatters the X-rays. By analyzing the pattern of the scattered rays, scientists can map out the positions of the atoms inside the molecule. Using this technique, Pauling was able to determine that <b>the shape of a protein is crucial to its function</b>. This discovery changed how scientists thought about biological molecules. For example, Pauling showed that the shape of a protein determines how it interacts with other molecules and carries out its job in the body. This insight was fundamental to understanding everything from how <b>enzymes</b> speed up chemical reactions to how <b>antibodies</b> fight off infections.</p>
+    </section>
+    
+    <section class="Finding-section">
+        <h2>Discovery of Alpha-Helix and Beta-Sheet Structures</h2>
+        <p><b>Alpha-helix</b>: This structure looks like a spiral staircase, where the protein chain coils around itself in a helical shape. It is held together by weak bonds between the atoms in the protein chain. The alpha-helix is very common in many types of proteins, such as <b>keratin</b>, which makes up hair, nails, and skin.</p>
+        <img src="Alpha-helix.jpg" alt="Alpha-helix">
+        <p><b>Beta-sheet</b>: This is another way proteins can fold. The protein chain zigzags and then folds back on itself, forming a sheet-like structure. The individual strands of the sheet are held together by hydrogen bonds between the atoms in the strands.</p>
+        <img src="beta structure.png" alt="Beta-Sheet">
+        <p>Pauling’s discovery of these shapes was revolutionary because it helped scientists understand how <b>proteins fold</b> into their functional forms. It also explained why certain diseases, like <b>sickle-cell anemia</b>, are caused by mistakes in protein folding. By understanding how proteins fold, scientists can now better understand how they work and how diseases related to protein misfolding, like Alzheimer’s and cystic fibrosis, happen.</p>
+    </section>
+    
+
+    <footer>
+        <section class="cta-container">
+            <div class="cta-content">
+                <h2>About us</h2>
+                <div class="work-cards">
+                    <div class="work-card">
+                        <h3>Aria Liu</h3>
+                        <p>The Web designer. Mainly focusing on the output. Designed the website and searched for supplementary material during building website.</p>
+                        <figcaption>Contact: liujiayi257124@stu.vma.edu.cn</figcaption>
+                    </div>
+                    <div class="work-card">
+                        <h3>Charlotte Li</h3>
+                        <p>Contributed to the materials of Pauling's biography and peave activism. Participated in designing the interactive experiment.</p>
+                        <figcaption>Contact: lizhitong@stu.vma.edu.cn</figcaption>
+                    </div>
+                    <div class="work-card">
+                        <h3>Kristy Zhang</h3>
+                        <p>Worked for searching materials of Pauling's biography, chemical achievements, and medical contribution.</p>
+                        <figcaption>Contact: zhangfengting@stu.vma.edu.cn</figcaption>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </footer>
+
+</body>
+</html>

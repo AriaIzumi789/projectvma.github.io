@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>atomix</title>
+
+	<script src="libs/p5.min.js"></script>
+	<script src="libs/player.js"></script>
+	<script src="libs/pt.js"></script>
+	<script src="atomix.js"></script>
+
+	<style>
+		body {
+			margin:0;
+			padding:0;
+			overflow: hidden;
+		}
+		canvas {
+			margin:auto;
+		}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Lora', serif;
+        }
+    
+        header {
+            background-color: #f9f9f9;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 0;
+            border-bottom: 2px solid #eaeaea;
+            position: fixed;
+            z-index: 1000;
+        }
+
+        body {
+            padding-top: 80px; 
+        }
+    
+        .header-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+    
+        .header-logo h1 {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #a37f40; 
+            line-height: 1.2;
+        }
+
+        .header-logo a {
+            text-decoration: none;
+            color: #a37f40;
+            font-size: 1em;
+            
+            transition: color 0.3s;
+        }
+
+        .header-logo a:hover {
+            color: #c79c52;
+        }
+
+    
+        .header-nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+    
+        .header-nav li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 1em;
+            transition: color 0.3s;
+        }
+    
+        .header-nav li a:hover {
+            color: #a37f40;
+        }
+	</style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="header-logo">
+                <h1><a href="index.html">Linus Pauling</a></h1>
+            </div>
+            <nav class="header-nav">
+                <ul>
+                    <li><a href="biography.html">Biography</a></li>
+                    <li><a href="chemistry.html">Chemistry</a></li>
+                    <li><a href="heathcare.html">Healthcare</a></li>
+                    <li><a href="peace.html">Peace Activism</a></li>
+                    <li><a href="experiment.html">Events & Experiment</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+</body>
+</html>

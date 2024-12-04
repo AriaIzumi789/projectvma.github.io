@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linus Pauling/healthcare</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Lora', serif;
+        }
+    
+        header {
+            background-color: #f9f9f9;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 0;
+            border-bottom: 2px solid #eaeaea;
+            position: fixed;
+            z-index: 1000;
+        }
+
+        body {
+            padding-top: 80px; 
+        }
+    
+        .header-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+    
+        .header-logo h1 {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #a37f40; 
+            line-height: 1.2;
+        }
+
+        .header-logo a {
+            text-decoration: none;
+            color: #a37f40;
+            font-size: 1em;
+            
+            transition: color 0.3s;
+        }
+
+        .header-logo a:hover {
+            color: #c79c52;
+        }
+
+    
+        .header-nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+    
+        .header-nav li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 1em;
+            transition: color 0.3s;
+        }
+    
+        .header-nav li a:hover {
+            color: #a37f40;
+        }
+
+        .linus-pauling {
+            padding: 40px 20px;
+            margin-bottom: 40px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .container h1 {
+            font-size: 3em;
+            text-align: center;
+            margin-bottom: 40px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .content {
+            display: flex;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .left-column {
+            width: 70%;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+        }
+
+        .left-column h2 {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #a37f40; 
+        }
+
+        .left-column p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .right-column {
+            width: 30%;
+            border-top: 1px solid #ddd;
+            padding-top: 20px;
+        }
+
+        .right-column h2 {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #a37f40;
+        }
+
+        .right-column ul {
+            list-style-type: none;
+        }
+
+        .right-column li {
+            font-size: 1.2em;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .right-column li::before {
+            content: "•"; 
+            color: #d7ad63; 
+            font-size: 1.2em;
+            margin-right: 10px; 
+            position: relative;
+            top: 2px;
+        }
+
+        @media screen and (max-width: 768px) {
+            .content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .left-column, .right-column {
+                width: 100%;
+                text-align: center;
+            }
+        }
+        
+        .full-screen-section {
+            width: 100%;
+            height: 60vh;
+            background-image: url('Vitamin-C.jpg'); 
+            background-size: cover; 
+            background-position: center; 
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center; 
+            position: relative;
+            margin-top: -10px;
+        }
+        .video-section {
+            width: 100%;
+            padding: 60px 20px;
+            background-color: #f4f4f4;
+        }
+
+        .video-section .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .video-section .left-column {
+            width: 55%;
+        }
+
+        .video-section h2 {
+            font-size: 2.3em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+            margin-left: 40px;
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: 315px;
+            border-radius: 5px; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .video-section .right-column {
+            width: 35%;
+            margin-top: 25px;
+        }
+
+        .video-section .right-column h3 {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #a37f40;
+            margin-bottom: 20px;
+        }
+
+        .video-section .right-column p {
+            font-size: 1.0em;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        @media screen and (max-width: 768px) {
+            .video-section .container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .video-section .left-column, .video-section .right-column, .video-section h2{
+                width: 100%;
+                text-align: center;
+            }
+
+            .video-container iframe {
+                width: 80%;
+            }
+
+            .video-section h2 {
+                margin-left: 0;
+            }
+
+        }
+
+        .Contribution-section {
+            width: 90%;
+            max-width: 1200px;
+            margin: 40px auto;
+            text-align: center;
+            position: relative;
+            margin-top: 70px;
+        }
+
+        .Contribution-section h2 {
+            color: #a37f40;
+            font-weight: bold;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            font-size: 1.5em;
+            letter-spacing: 1px;
+            text-align: left;
+            position: relative;
+            padding-top: 30px;
+
+        }
+
+        .Contribution-section h2::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: #ddd;
+        }
+
+        .Contribution-section img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 5%;
+        }
+
+        .Contribution-section p {
+            font-size: 1.2em;
+            text-align: left;
+            color: #333;
+            margin-bottom: 15px;
+            text-indent: 2em;
+        }
+
+        .timeline-section {
+            padding: 60px 20px;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin-top: 120px;
+        }
+
+        .timeline-section h2{
+            font-size: 1.5em;
+            padding-bottom: 25px;
+        }
+
+        .timeline-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .timeline {
+            display: flex;
+            gap: 30px;
+            transition: transform 0.5s ease; 
+        }
+
+        .timeline-item {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 250px;
+            min-width: 250px;
+            text-align: left;
+            flex-shrink: 0; 
+        }
+
+        .timeline-year {
+            font-size: 2em;
+            font-weight: bold;
+            color: #a37f40;
+            margin-bottom: 10px;
+        }
+
+        .timeline-content p {
+            font-size: 1.0em;
+            color: #333;
+        }
+
+        .timeline-btn {
+            background-color: #a37f40;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            z-index: 1;
+            font-size: 1.5em;
+            border-radius: 5px;
+        }
+
+        .prev {
+            left: 0;
+        }
+
+        .next {
+            right: 0;
+        }
+
+        .timeline-btn:hover {
+            background-color: #805f30;
+        }
+
+        .timeline-item:last-child {
+            margin-right: 20px;
+        }
+
+        @media screen and (max-width: 768px) {
+            .timeline {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .timeline-btn {
+                display: none; 
+            }
+
+            .timeline-item {
+                width: 100%;
+            }
+        }
+
+        .button-container {
+            margin-top: 15px;
+        }
+
+        .button-container a {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1em;
+            color: #fff;
+            background-color: #a37f40;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .button-container a:hover {
+            background-color: #805f30;
+        }
+
+        .Chemistry-section {
+            width: 90%;
+            max-width: 1200px;
+            margin: 40px auto;
+            text-align: center;
+            position: relative;
+            margin-top: 150px;
+        }
+
+        .Chemistry-section h2 {
+            color: #a37f40;
+            font-weight: bold;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            font-size: 1.5em;
+            letter-spacing: 1px;
+            position: relative;
+            padding-top: 30px; 
+        }
+
+        .Chemistry-section h2::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: #ddd;
+        }
+
+        .work-cards {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .work-card {
+            width: calc(33.33% - 20px);
+            padding: 20px;
+            background-color: transparent;
+            text-align: left;
+            box-sizing: border-box;
+            border-top: 1px solid #ddd;
+        }
+
+        .work-card h3 {
+            color: #333;
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .work-card p {
+            font-size: 1em;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .work-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .work-card figcaption {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: -20px;
+        }
+
+        @media screen and (max-width: 768px) {
+            .work-card {
+                width: 100%;
+            }
+        }
+
+        footer{
+            background-color: rgb(243, 239, 232);
+            margin-top: 80px;
+            padding: 40px;
+            padding-top: 50px;
+            padding-bottom: 70px;
+        }
+
+        .cta-content h2{
+            font-size: 2em;
+            padding-left: 20px;
+        }
+
+        b{
+            color: #5740a3;
+        }
+
+    </style>
+</head>
+<body>
+    <section class="full-screen-section"></section>
+
+
+    <header>
+        <div class="header-container">
+            <div class="header-logo">
+                <h1><a href="index.html">Linus Pauling</a></h1>
+            </div>
+            <nav class="header-nav">
+                <ul>
+                    <li><a href="biography.html">Biography</a></li>
+                    <li><a href="chemistry.html">Chemistry</a></li>
+                    <li><a href="heathcare.html">Healthcare</a></li>
+                    <li><a href="peace.html">Peace Activism</a></li>
+                    <li><a href="experiment.html">Events & Experiment</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section class="linus-pauling">
+        <div class="container">
+            <h1>A Trailblazer in Medical Research and Nutritional Therapy</h1>
+
+            <div class="content">
+                <div class="left-column">
+                    <h2>The Groundbreaking Medical Contributions</h2>
+                    <p>Linus Pauling’s medical contributions, particularly in the areas of <b>molecular disease</b>, <b>orthomolecular medicine</b>, and <b>vitamin C research</b>, have had a lasting impact on both the scientific and medical communities. Pauling pioneered the concept of <b>molecular disease</b>, identifying <b>sickle cell anemia</b> as the first disorder caused by a molecular defect in hemoglobin, which opened the door for further research into genetic diseases. His work in <b>orthomolecular medicine</b> emphasized the importance of vitamins and other nutrients in treating diseases, challenging conventional approaches to healthcare. Pauling's research on <b>vitamin C</b> and its role in preventing and treating conditions like the <b>common cold</b>, <b>cancer</b>, and <b>cardiovascular disease</b> sparked widespread interest in the therapeutic use of micronutrients. Despite controversy, his ideas have influenced the ongoing exploration of nutrition’s role in health and disease prevention.</p>
+                </div>
+    
+                <div class="right-column">
+                    <h2>Main Contributions</h2>
+                    <ul>
+                        <li>The Concept of Molecular Disease</li>
+                        <li>Orthomolecular Medicine</li>
+                        <li>Vitamin C Research</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>    
+
+    <section class="video-section">
+        <h2>The Lecture On Vitamin-C</h2>
+        <div class="container">
+            <div class="left-column">
+                <div class="video-container">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/rf0C0M1bKsE?si=QZsMcveliBulBzPi" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </div>
+    
+            <div class="right-column">
+                <h3>All There is to C: The Vitamin C Essentials</h2>
+                <p>The Linus Pauling Institute's Alexander Michels, Ph.D., shares the essentials on vitamin C, including evidence, myths, recommendations, and limitations.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="Chemistry-section">
+        <h2>Medical Contributions</h2>
+        <div class="work-cards">
+            <div class="work-card">
+                <h3>The Concept of Molecular Disease</h3>
+                <p>Pauling originated the concept of molecular disease, which revolutionized the understanding of genetic disorders. In 1945, after hearing about sickle cell anemia, Pauling hypothesized that the disease was caused by a defect in the hemoglobin molecule. His research, in collaboration with Dr. Harvey Itano, identified sickle cell anemia as a genetically transmitted molecular disorder, where deoxygenated hemoglobin molecules stick together, forming rods that interfere with blood circulation. This was the first disease identified as a result of a molecular defect. Pauling’s discovery led to further research on other molecular diseases, and it laid the foundation for modern genetics, including research in the human genome.</p>
+            </div>
+            <div class="work-card">
+                <h3>Orthomolecular Medicine</h3>
+                <p>Pauling’s later work in orthomolecular medicine focused on the role of vitamins and other nutrients in maintaining health and treating diseases. He believed that health problems could often be treated by correcting deficiencies in biochemical substances naturally occurring in the body. He founded orthomolecular psychiatry in 1968, which proposed using vitamins and micronutrients to treat mental illness, especially schizophrenia, instead of relying on synthetic drugs. Pauling expanded this concept to orthomolecular medicine, which advocates for the use of the right molecules in the right concentrations for the prevention and treatment of disease.</p>
+            </div>
+            <div class="work-card">
+                <h3>Vitamin C Research</h3>
+                <p>One of Pauling's most publicized contributions was his work on vitamin C. He became fascinated with its role in maintaining health and began advocating for high-dose vitamin C as a treatment for the common cold. In 1970, he published Vitamin C and the Common Cold, which popularized the idea that large doses of vitamin C could prevent or alleviate colds. Later, Pauling extended his research to show that vitamin C could also be beneficial for cardiovascular diseases, cancer, and degenerative conditions in aging. Though controversial and often criticized by medical professionals, Pauling’s work spurred further research into the therapeutic effects of vitamins and micronutrients.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <section class="cta-container">
+            <div class="cta-content">
+                <h2>About us</h2>
+                <div class="work-cards">
+                    <div class="work-card">
+                        <h3>Aria Liu</h3>
+                        <p>The Web designer. Mainly focusing on the output. Designed the website and searched for supplementary material during building website.</p>
+                        <figcaption>Contact: liujiayi257124@stu.vma.edu.cn</figcaption>
+                    </div>
+                    <div class="work-card">
+                        <h3>Charlotte Li</h3>
+                        <p>Contributed to the materials of Pauling's biography and peave activism. Participated in designing the interactive experiment.</p>
+                        <figcaption>Contact: lizhitong@stu.vma.edu.cn</figcaption>
+                    </div>
+                    <div class="work-card">
+                        <h3>Kristy Zhang</h3>
+                        <p>Worked for searching materials of Pauling's biography, chemical achievements, and medical contribution.</p>
+                        <figcaption>Contact: zhangfengting@stu.vma.edu.cn</figcaption>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </footer>
+
+</body>
+</html>
